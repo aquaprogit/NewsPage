@@ -7,6 +7,15 @@ import {
 } from "@mui/material";
 import React from "react";
 
+export async function fetchPosts(url: string) {
+  return await fetch(url).then((response) => {
+    if (!response.ok) {
+        console.log(response);
+    }
+    return response.json();
+  });
+}
+
 type MyProps = { title: string; body: string; src: string };
 class NewsCardComponent extends React.Component<MyProps, {}> {
   constructor(props: { title: string; body: string; src: string }) {
