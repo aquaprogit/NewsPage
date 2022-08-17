@@ -9,14 +9,15 @@ body {
   margin: 0;
 }
 .side-bar-container{
-  width: auto;
+  width: 100%;
+  padding: 0 100px;
+  text-align: center;
   overflow-y: scroll;
 }
 .side-bar-container::-webkit-scrollbar {
   display: none;
 }
-.content{
-  position: absolute;
-  margin-left: 400px;
-  background-color: aliceblue;
+.stack{
+  width: 100%;
+  align-items: center;
 }
