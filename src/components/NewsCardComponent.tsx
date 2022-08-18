@@ -9,6 +9,8 @@ import {
     Grid
 } from "@mui/material";
 import React from "react";
+import {getUser} from "../containers/ProfilePage";
+import Utils from '../services/utilities';
 
 type MyProps = {
     title: string;
@@ -17,6 +19,7 @@ type MyProps = {
     id: number;
 };
 class NewsCardComponent extends React.Component < MyProps, {} > {
+    private name: string = "";
     constructor(props : {
         title: string;
         body: string;
@@ -25,6 +28,9 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
     }) {
         super(props);
         this.state = props;
+        getUser(this.props.id).then(user => {
+            this.name = user.name;
+        });
     }
     static defaultProps = {
         title: "Empty title",
@@ -83,7 +89,15 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
                                 window.location.href = "../../profile/index.html?id=" + this.props.id.toString();
                             }
                         }>
-                            <Avatar className="avatar"></Avatar>
+                            <Avatar className="avatar"
+                                sx={
+                                    {
+                                        bgcolor: Utils.generateColorFromName(this.name)
+                                    }
+                            }>
+                                {
+                                Utils.getInitialsFromName(this.name)
+                            }</Avatar>
                         </IconButton>
                     </Grid>
                 </Grid>

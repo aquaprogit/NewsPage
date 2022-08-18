@@ -16,8 +16,11 @@ export module Utils{
 
         return color;
     }
-export function getInitialsFromName(name: string) {
-    return name[0] + name[name.indexOf(' ') + 1];
+    export function getInitialsFromName(name: string) {
+        if (name == "") {
+            return "";
+        }
+        return name[0] + name[name.indexOf(' ') + 1];
 }
 
 }

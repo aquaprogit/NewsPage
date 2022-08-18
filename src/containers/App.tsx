@@ -6,7 +6,6 @@ import {getPosts, PostData} from "../services/post";
 function App() {
     const [posts, setPosts] = useState < PostData[] > ([]);
     useEffect(() => {
-        console.log('HH')
         let mounted = true;
         getPosts().then((items) => {
             if (mounted) {
