@@ -1,32 +1,45 @@
-import {
-    Card,
-    CardMedia,
-    CardContent,
-    Typography,
-    Avatar,
-    Button,
-    IconButton,
-    CardActions,
-    Box,
-    createTheme,
-    ThemeProvider,
-    CssBaseline,
-    Grid,
-    Divider,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-    ListItemAvatar,
-    Link
-} from "@mui/material";
+import * as material from "@mui/material";
 import React from "react";
 import {User} from "../services/user";
 import {Paper} from "@mui/material";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import {deepOrange} from "@mui/material/colors";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LanguageIcon from '@mui/icons-material/Language';
+import HomeIcon from '@mui/icons-material/Home';
+import NumbersIcon from '@mui/icons-material/Numbers';
+import Utils from "../services/utilities";
 
-const theme = createTheme({
+
+const themeInversed = material.createTheme({
+    components: {
+        MuiSvgIcon: {
+            styleOverrides: {
+                root: {
+                    verticalAlign: 'middle',
+                    fontSize: '25px',
+                    marginBottom: '3px',
+                    marginRight: '15px',
+                    color: '#1FF4F4'
+                }
+            }
+        }
+    }
+});
+
+const theme = material.createTheme({
+    components: {
+        MuiSvgIcon: {
+            styleOverrides: {
+                root: {
+                    verticalAlign: 'middle',
+                    fontSize: '25px',
+                    marginBottom: '3px',
+                    marginLeft: '15px',
+                    color: '#1FF4F4'
+                }
+            }
+        }
+    },
     palette: {
         primary: {
             main: "#22918d"
@@ -48,6 +61,7 @@ const theme = createTheme({
         }
     }
 });
+
 type MyProps = {
     user: User;
 };
@@ -66,36 +80,35 @@ class ProfilePageComponent extends React.Component < MyProps, {} > {
     render() {
         return (
             <div className="container">
-                <ThemeProvider theme={theme}>
+                <material.ThemeProvider theme={theme}>
                     <Paper className="paper-container"
                         elevation={24}
                         style={
                             {backgroundColor: "background.paper"}
                     }>
-                        <Avatar className="user-avatar"
+                        <material.Avatar className="user-avatar"
                             sx={
                                 {
-                                    bgcolor: this.generateColor(),
+                                    bgcolor: Utils.generateColorFromName(this.props.user.name),
                                     height: 100,
                                     width: 100,
                                     fontSize: 32
                                 }
                         }>
                             {
-                            this.props.user.name[0] + this.props.user.name[this.props.user.name.indexOf(' ') + 1]
-                        } </Avatar>
-                        <Typography variant="h4" className="fullname-container">
+                            Utils.getInitialsFromName(this.props.user.name)
+                        } </material.Avatar>
+                        <material.Typography variant="h4" className="fullname-container">
                             <span>{
                                 this.props.user.name
                             }</span>
-                        </Typography>
-                        <Typography variant="h6" color="text.secondary">
+                        </material.Typography>
+                        <material.Typography variant="h6" color="text.secondary">
                             {
                             this.props.user.username
-                        }
-                            {" "} </Typography>
-                        <Grid container direction="row" justifyContent="center" alignItems="stretch" className="info-container">
-                            <Grid className="info-content" xs>
+                        } </material.Typography>
+                        <material.Grid container direction="row" justifyContent="center" alignItems="stretch" className="info-container">
+                            <material.Grid className="info-content" xs>
                                 <Paper className="right"
                                     style={
                                         {
@@ -105,53 +118,51 @@ class ProfilePageComponent extends React.Component < MyProps, {} > {
                                     }
                                     elevation={24}>
                                     <div className="side-content">
-                                        <Typography variant="h4">Personal info</Typography>
-                                        <Typography variant="h6">
-                                            email:&emsp;
+                                        <material.Typography variant="h4">Personal info</material.Typography>
+                                        <material.Typography variant="h6">
                                             <span>{
                                                 this.props.user.email
                                             }</span>
-                                        </Typography>
-                                        <Typography variant="h6">
-                                            phone:&emsp;
+                                            <AlternateEmailIcon></AlternateEmailIcon>
+                                        </material.Typography>
+                                        <material.Typography variant="h6">
                                             <span>{
                                                 this.props.user.phone
                                             }</span>
-                                        </Typography>
-                                        <Typography variant="h6">
-                                            web:&emsp;
-                                            <Link color={"secondary"}
+                                            <LocalPhoneIcon></LocalPhoneIcon>
+                                        </material.Typography>
+                                        <material.Typography variant="h6">
+                                            <material.Link color={"#1FF4F4"}
+
                                                 href={
                                                     "https://" + this.props.user.website
                                             }>
                                                 {
                                                 this.props.user.website
-                                            }
-                                                {" "} </Link>
-                                        </Typography>
-                                        <Typography variant="h6">
-                                            address:&emsp;
-                                            <span> {" "}
-                                                {
+                                            } </material.Link>
+                                            <LanguageIcon></LanguageIcon>
+                                        </material.Typography>
+                                        <material.Typography variant="h6">
+                                            <span> {
                                                 this.props.user.address.city + ", " + this.props.user.address.street + ", " + this.props.user.address.suite
-                                            }
-                                                {" "} </span>
-                                        </Typography>
-                                        <Typography variant="h6">
-                                            z-code:&emsp;
+                                            } </span>
+                                            <HomeIcon></HomeIcon>
+                                        </material.Typography>
+                                        <material.Typography variant="h6">
                                             <span>{
                                                 this.props.user.address.zipcode
                                             }</span>
-                                        </Typography>
+                                            <NumbersIcon></NumbersIcon>
+                                        </material.Typography>
                                     </div>
                                 </Paper>
-                            </Grid>
-                            <Grid>
+                            </material.Grid>
+                            <material.Grid>
                                 <div style={
                                     {width: 20}
                                 }></div>
-                            </Grid>
-                            <Grid className="info-content" xs>
+                            </material.Grid>
+                            <material.Grid className="info-content" xs>
                                 <Paper style={
                                         {
                                             backgroundColor: "#3c3c3c",
@@ -161,13 +172,52 @@ class ProfilePageComponent extends React.Component < MyProps, {} > {
                                     elevation={24}
                                     className="left">
                                     <div className="side-content">
-                                        <Typography variant="h5">Job info</Typography>
+                                        <material.Typography variant="h4">Job info</material.Typography>
+                                        <material.ThemeProvider theme={themeInversed}>
+                                            <material.Typography variant="h6">
+                                                <AlternateEmailIcon></AlternateEmailIcon>
+                                                <span>{
+                                                    this.props.user.email
+                                                }</span>
+                                            </material.Typography>
+                                            <material.Typography variant="h6">
+                                                <LocalPhoneIcon></LocalPhoneIcon>
+                                                <span>{
+                                                    this.props.user.phone
+                                                }</span>
+                                            </material.Typography>
+                                            <material.Typography variant="h6">
+                                                <LanguageIcon></LanguageIcon>
+                                                <material.Link color={"#1FF4F4"}
+
+                                                    href={
+                                                        "https://" + this.props.user.website
+                                                }>
+                                                    {
+                                                    this.props.user.website
+                                                } </material.Link>
+                                            </material.Typography>
+                                            <material.Typography variant="h6">
+                                                <HomeIcon></HomeIcon>
+                                                <span> {
+                                                    this.props.user.address.city + ", " + this.props.user.address.street + ", " + this.props.user.address.suite
+                                                } </span>
+                                            </material.Typography>
+                                            <material.Typography variant="h6">
+                                                <NumbersIcon></NumbersIcon>
+                                                <span>{
+                                                    this.props.user.address.zipcode
+                                                }</span>
+                                            </material.Typography>
+
+
+                                        </material.ThemeProvider>
                                     </div>
                                 </Paper>
-                            </Grid>
-                        </Grid>
+                            </material.Grid>
+                        </material.Grid>
                     </Paper>
-                </ThemeProvider>
+                </material.ThemeProvider>
             </div>
         );
     }
