@@ -1,19 +1,16 @@
 import {
   Card,
-  CardActionArea,
   CardMedia,
   CardContent,
   Typography,
+  Avatar,
+  Button,
+  IconButton,
 } from "@mui/material";
 import React from "react";
 
-export async function fetchPosts(url: string) {
-  return await fetch(url).then((response) => {
-    if (!response.ok) {
-        console.log(response);
-    }
-    return response.json();
-  });
+function openProfile() {
+  window.open("/profile.html");
 }
 
 type MyProps = { title: string; body: string; src: string };
@@ -35,34 +32,37 @@ class NewsCardComponent extends React.Component<MyProps, {}> {
         sx={{ backgroundColor: "#2e2e2e", position: "relative" }}
         elevation={24}
       >
-        <CardActionArea>
-          <CardMedia
-            component={"img"}
-            height={160}
-            src={this.props.src}
-          ></CardMedia>
-          <CardContent>
-            <Typography
-              color="whitesmoke"
-              variant="h4"
-              className="title-content"
-            >
-              {this.props.title}
+        <CardMedia
+          component={"img"}
+          height={160}
+          src={this.props.src}
+        ></CardMedia>
+        <CardContent>
+          <Typography color="whitesmoke" variant="h4" className="title-content">
+            {this.props.title}
+          </Typography>
+          <Typography>
+            <br />
+          </Typography>
+          <div className="card-body">
+            <Typography variant="body1" color="white" className="body-content">
+              {this.props.body}
             </Typography>
-            <Typography>
-              <br />
-            </Typography>
-            <div className="card-body">
-              <Typography
-                variant="body1"
-                color="white"
-                className="body-content"
-              >
-                {this.props.body}
-              </Typography>
-            </div>
-          </CardContent>
-        </CardActionArea>
+          </div>
+        </CardContent>
+        <div className="card-footer">
+          <Button className="footer-button" size="large">
+            Share
+          </Button>
+          <Button className="footer-button" size="large">
+            Learn More
+          </Button>
+          <div className="avatar-container">
+            <IconButton onClick={openProfile}>
+              <Avatar className="avatar">F</Avatar>
+            </IconButton>
+          </div>
+        </div>
       </Card>
     );
   }

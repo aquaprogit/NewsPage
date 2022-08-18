@@ -1,0 +1,34 @@
+.paper-card{
+  min-height: 535px;
+  width: 400px;
+}
+.card-body{
+  position: relative;
+  max-height: 200px;
+  bottom: 0%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+.title-content{
+  max-height: 125px;
+  overflow: hidden;
+}
+.card-footer{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.avatar-container{
+  position: absolute;
+  right: 0;
+  margin: 0 20px;
+}
+.avatar{
+  position: absolute;
+  right: 0;
+
+}

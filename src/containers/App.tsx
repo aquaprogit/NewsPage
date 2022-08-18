@@ -1,9 +1,7 @@
 import { Stack } from "@mui/material";
 import NewsCardComponent from "../components/NewsCardComponent";
-import { fetchPosts } from "../components/NewsCardComponent";
 import { useState, useEffect } from "react";
 import { getPosts, PostData } from "../services/post";
-import React from "react";
 
 function App() {
   const [posts, setPosts] = useState<PostData[]>([]);

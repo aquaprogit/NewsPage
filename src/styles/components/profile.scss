@@ -1,0 +1,54 @@
+$base-color: #c6538c;
+
+#root{
+    background-color: #222;
+    font-family: sans-serif;
+}
+.paper-container{
+    width: 1000px;
+    height: 700px;
+    padding: 20px 50px;
+}
+.container{
+    margin: auto;
+    text-align: center;
+}
+.user-avatar{
+    margin: auto;
+    margin-top: 25px; 
+}
+.fullname-container{
+    text-align: center;
+    padding-top: 10px;
+}
+.info-container{
+    height: 100%;
+}
+.info-content{
+    height: 500px;
+    width: auto;
+    position: relative;
+}
+.right{
+    position: absolute;
+    height: 100%;
+    text-align: right;
+    width: 100%;
+    right: 0;
+}
+.left{
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    left: 0;
+}
+.side-content{
+    margin: 10px 20px;
+}
+.title-info{
+    display: inline-flex;
+    font-size: 20px;
+    margin: 10px;
+    vertical-align: top;
+}
