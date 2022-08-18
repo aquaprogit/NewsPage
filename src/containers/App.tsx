@@ -21,6 +21,7 @@ function App() {
             <NewsCardComponent
               body={item.body}
               title={item.title}
+              id={item.userId}
               src={
                 "https://thumbs.dreamstime.com/b/news-paper-background-indoor-hand-made-taken-lahore-pakistan-171259538.jpg"
               }

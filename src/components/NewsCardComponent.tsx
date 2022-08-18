@@ -9,13 +9,9 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function openProfile() {
-  window.open("/profile.html");
-}
-
-type MyProps = { title: string; body: string; src: string };
+type MyProps = { title: string; body: string; src: string; id: number };
 class NewsCardComponent extends React.Component<MyProps, {}> {
-  constructor(props: { title: string; body: string; src: string }) {
+  constructor(props: { title: string; body: string; src: string; id: number }) {
     super(props);
     this.state = props;
   }
@@ -52,13 +48,18 @@ class NewsCardComponent extends React.Component<MyProps, {}> {
         </CardContent>
         <div className="card-footer">
           <Button className="footer-button" size="large">
-            Share
+            {this.props.id}
           </Button>
           <Button className="footer-button" size="large">
             Learn More
           </Button>
           <div className="avatar-container">
-            <IconButton onClick={openProfile}>
+            <IconButton
+              onClick={() => {
+                window.location.href =
+                  "../../profile/index.html?id=" + this.props.id.toString();
+              }}
+            >
               <Avatar className="avatar">F</Avatar>
             </IconButton>
           </div>

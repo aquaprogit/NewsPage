@@ -9,6 +9,8 @@ export class Address {
   city: string = "";
   zipcode: string = "";
   geo: Geo = new Geo();
+  
+  fullAddress: string = "";
 }
 
 export class Company {

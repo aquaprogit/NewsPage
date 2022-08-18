@@ -13,8 +13,10 @@ export async function getUser(id: number): Promise<any> {
 function ProfilePage() {
   const [user, setUser] = useState<User>();
   useEffect(() => {
+    let url_string = window.location.href;
+    let url = new URL(url_string);
     let mounted = true;
-    getUser(1).then((items) => {
+    getUser(parseInt(url.searchParams.get("id") ?? "-1")).then((items) => {
       if (mounted) {
         setUser(items);
       }
