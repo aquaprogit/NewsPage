@@ -3,14 +3,13 @@
   background: #212121;
   height: 100vh;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
 }
 .side-bar-container{
-  width: auto;
+  width: 100%;
   padding: 0 100px;
   text-align: center;
   overflow-y: scroll;
@@ -18,23 +17,7 @@ body {
 .side-bar-container::-webkit-scrollbar {
   display: none;
 }
-.add-menu{
-  margin: auto;
-}
-.body-card{
-    margin: auto;
-    width: 500px;
-    height: 700px;
-}
-
-.field{
-    margin-left: 10px;
-}
-.card-header{
-    text-align: center;
-    margin-top: 30px;
-}
-.card-footer{
-    position: absolute;
-    justify-content: end;
+.stack{
+  width: 100%;
+  align-items: center;
 }
