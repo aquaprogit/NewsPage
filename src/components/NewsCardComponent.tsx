@@ -89,11 +89,7 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
                                 window.location.href = "../../profile/index.html?id=" + this.props.id.toString();
                             }
                         }>
-                            <Avatar className="avatar"
-                                sx={
-                                    { // bgcolor: Utils.generateColorFromName(this.name)
-                                    }
-                            }></Avatar>
+                            <Avatar className="avatar"></Avatar>
                         </IconButton>
                     </Grid>
                 </Grid>
