@@ -91,13 +91,9 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
                         }>
                             <Avatar className="avatar"
                                 sx={
-                                    {
-                                        bgcolor: Utils.generateColorFromName(this.name)
+                                    { // bgcolor: Utils.generateColorFromName(this.name)
                                     }
-                            }>
-                                {
-                                Utils.getInitialsFromName(this.name)
-                            }</Avatar>
+                            }></Avatar>
                         </IconButton>
                     </Grid>
                 </Grid>

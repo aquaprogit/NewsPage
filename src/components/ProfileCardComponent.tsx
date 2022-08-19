@@ -8,6 +8,8 @@ import LanguageIcon from '@mui/icons-material/Language';
 import HomeIcon from '@mui/icons-material/Home';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import Utils from "../services/utilities";
+import WorkIcon from '@mui/icons-material/Work';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 
 
 const themeInversed = material.createTheme({
@@ -72,11 +74,6 @@ class ProfilePageComponent extends React.Component < MyProps, {} > {
         super(props);
         this.state = props;
     }
-    generateColor() {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-        return `#${randomColor}`;
-    };
-
     render() {
         return (
             <div className="container">
@@ -175,42 +172,23 @@ class ProfilePageComponent extends React.Component < MyProps, {} > {
                                         <material.Typography variant="h4">Job info</material.Typography>
                                         <material.ThemeProvider theme={themeInversed}>
                                             <material.Typography variant="h6">
-                                                <AlternateEmailIcon></AlternateEmailIcon>
+                                                <WorkIcon></WorkIcon>
                                                 <span>{
-                                                    this.props.user.email
+                                                    this.props.user.company.name
                                                 }</span>
                                             </material.Typography>
                                             <material.Typography variant="h6">
-                                                <LocalPhoneIcon></LocalPhoneIcon>
+                                                <TipsAndUpdatesIcon></TipsAndUpdatesIcon>
                                                 <span>{
-                                                    this.props.user.phone
+                                                    this.props.user.company.catchPhrase
                                                 }</span>
-                                            </material.Typography>
-                                            <material.Typography variant="h6">
-                                                <LanguageIcon></LanguageIcon>
-                                                <material.Link color={"#1FF4F4"}
-
-                                                    href={
-                                                        "https://" + this.props.user.website
-                                                }>
-                                                    {
-                                                    this.props.user.website
-                                                } </material.Link>
                                             </material.Typography>
                                             <material.Typography variant="h6">
                                                 <HomeIcon></HomeIcon>
                                                 <span> {
-                                                    this.props.user.address.city + ", " + this.props.user.address.street + ", " + this.props.user.address.suite
+                                                    this.props.user.company.bs
                                                 } </span>
                                             </material.Typography>
-                                            <material.Typography variant="h6">
-                                                <NumbersIcon></NumbersIcon>
-                                                <span>{
-                                                    this.props.user.address.zipcode
-                                                }</span>
-                                            </material.Typography>
-
-
                                         </material.ThemeProvider>
                                     </div>
                                 </Paper>
