@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import {getUser} from "../containers/ProfilePage";
-import Utils from '../services/utilities';
 
 type MyProps = {
     title: string;
@@ -86,7 +85,7 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
                     <Grid className="avatar-container" xs>
                         <IconButton onClick={
                             () => {
-                                window.location.href = "../../profile/index.html?id=" + this.props.id.toString();
+                                window.location.href = "../../profile/?id=" + this.props.id.toString();
                             }
                         }>
                             <Avatar className="avatar"></Avatar>
