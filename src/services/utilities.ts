@@ -21,8 +21,11 @@ export module Utils{
             return "";
         }
         return name[0] + name[name.indexOf(' ') + 1];
-}
-
+    }   
+    export function getParameterValueFromLink(link: string, attributeName: string): string {
+        let url = new URL(link);
+        return url.searchParams.get(attributeName) ?? "";
+    }
 }
 
 export default Utils;
