@@ -68,55 +68,6 @@ function App() {
                     ))
                 } </Stack>
             </div>
-            <div className="add-menu"
-                style={
-                    {position: 'relative'}
-            }>
-                <ThemeProvider theme={theme}>
-                    <Card className="body-card"
-                        style={
-                            {position: 'relative'}
-                    }>
-                        <Typography variant="h4"
-                            style={
-                                {marginTop: 20}
-                            }
-                            className="card-header">
-                            Add new post
-                        </Typography>
-                        <TextField className="field"
-                            style={
-                                {
-                                    marginLeft: '30px',
-                                    marginTop: '20px'
-                                }
-                            }
-                            label="Title"
-                            variant="standard"/>
-                        <TextField className="field"
-                            style={
-                                {
-                                    marginLeft: '30px',
-                                    marginTop: '20px',
-                                    maxHeight: '90px'
-                                }
-                            }
-                            label="Body"
-                            placeholder="Content text..."
-                            multiline
-                            variant="standard"/>
-                        <div className="card-footer">
-                            <Button variant="contained" color="warning"
-                                style={
-                                    {marginRight: 20}
-                            }>
-                                Publish
-                            </Button>
-                        </div>
-
-                    </Card>
-                </ThemeProvider>
-            </div>
         </div>
     );
 }
