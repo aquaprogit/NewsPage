@@ -85,7 +85,7 @@ class NewsCardComponent extends React.Component < MyProps, {} > {
                     <Grid className="avatar-container" xs>
                         <IconButton onClick={
                             () => {
-                                window.location.href = "../../profile/?id=" + this.props.id.toString();
+                                window.location.href = "../../profile.html?id=" + this.props.id.toString();
                             }
                         }>
                             <Avatar className="avatar"></Avatar>
